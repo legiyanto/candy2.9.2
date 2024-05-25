@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the php.ini file
-PHP_INI="/etc/php/7.4/fpm/php.ini"
+PHP_INI="/etc/php/7.4/cli/php.ini"
 
 # New values
 MEMORY_LIMIT="512M"
