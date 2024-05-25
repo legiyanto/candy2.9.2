@@ -1,4 +1,33 @@
 #!/bin/bash
+# Fungsi untuk mencetak teks di tengah layar
+print_center() {
+  local termwidth
+  local padding
+  termwidth=$(tput cols)
+  padding=$(( (termwidth - ${#1}) / 2 ))
+  printf "%${padding}s%s\n" "" "$1"
+}
+
+# Menampilkan banner teks ASCII dengan gaya slant di tengah
+print_center "    __               _                   __      "
+print_center "   / /   ___  ____ _(_)_  ______ _____  / /_____ "
+print_center "  / /   / _ \/ __ \`/ / / / / __ \`/ __ \/ __/ __ \\"
+print_center " / /___/  __/ /_/ / / /_/ / /_/ / / / / /_/ /_/ /"
+print_center "/_____/\___/\__, /_/\__, /\\__,_/_/ /_/\\__/\____/ "
+print_center "           /____/  /____/                         "
+print_center ""
+print_center ""
+print_center ""
+print_center "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+print_center "|T|K|J|S|M|K|N|5|B|A|N|D|U|N|G|"
+print_center "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+print_center ""
+print_center ""
+print_center ""
+
+# Tambahkan perintah yang ingin dijalankan setelah banner di tampilkan di sini
+# Contoh:
+print_center "Mohon Di tunggu Script Otomasi CBT Akan berjalan!"
 sudo tee /etc/apt/sources.list > /dev/null <<EOL
 deb http://kartolo.sby.datautama.net.id/ubuntu/ focal main restricted universe multiverse
 deb http://kartolo.sby.datautama.net.id/ubuntu/ focal-updates main restricted universe multiverse
