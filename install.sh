@@ -40,7 +40,7 @@ EOL
 sudo apt update -y > /dev/null 2>&1
 echo "Repository update selesai."
 
-# Install wget, nginx, php, mariadb, dan phpmyadmin tanpa output
+# Install wget, nginx, php, mariadb, dan modul php tanpa output
 sudo apt install -y wget > /dev/null 2>&1 && echo "wget berhasil diinstall."
 sudo apt install -y zip unzip > /dev/null 2>&1 && echo "zip dan unzip berhasil diinstall."
 sudo apt install -y nginx > /dev/null 2>&1 && echo "nginx berhasil diinstall."
@@ -48,6 +48,12 @@ sudo apt install -y php7.4-fpm > /dev/null 2>&1 && echo "php7.4-fpm berhasil dii
 sudo apt install -y php7.4-common php-zip php-curl php-xml php-xmlrpc php-json php-mysql php-pdo php-gd php-imagick php-ldap php-imap php-mbstring php-intl php-cli php-tidy php-bcmath php-opcache > /dev/null 2>&1 && echo "Modul PHP berhasil diinstall."
 sudo apt install -y mariadb-server mariadb-client > /dev/null 2>&1 && echo "MariaDB berhasil diinstall."
 sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';" > /dev/null 2>&1 && echo "Password MariaDB root berhasil diubah."
+
+# Menjawab pertanyaan konfigurasi phpmyadmin dengan debconf-set-selections
+echo "phpmyadmin phpmyadmin/dbconfig-install boolean false" | sudo debconf-set-selections
+echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect none" | sudo debconf-set-selections
+
+# Install phpmyadmin tanpa output
 sudo apt install -y phpmyadmin > /dev/null 2>&1 && echo "phpmyadmin berhasil diinstall."
 
 # Link phpmyadmin
