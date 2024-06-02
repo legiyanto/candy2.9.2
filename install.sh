@@ -129,6 +129,7 @@ sudo chmod +x nginx.sh && sudo ./nginx.sh > /dev/null 2>&1 && echo "nginx.sh ber
 
 # Berikan izin 777 ke /var/www/html
 sudo chmod -R 777 /var/www/html > /dev/null 2>&1 && echo "Izin 777 diberikan ke /var/www/html."
+sudo sync; echo 3 > /proc/sys/vm/drop_caches 2>&1 && echo "Cache telah di bersihkan"
 
 # Notifikasi akhir di tengah dan berwarna merah
 print_center "Semua aplikasi telah berhasil diinstall." "$RED"
